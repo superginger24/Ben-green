@@ -1,0 +1,259 @@
+:root {
+  --bg: #0b0b0e;
+  --bg-alt: #141418;
+  --text: #e9e9ee;
+  --text-dim: #a9a9b3;
+  --accent: #e10600;
+  --accent-dim: rgba(225, 6, 0, 0.15);
+  --yellow: #ffcc00;
+  --border: #2a2a32;
+
+  font: 18px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+a {
+  color: var(--accent);
+}
+
+#app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(11, 11, 14, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.brand-emoji {
+  font-size: 24px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px 60px;
+  background: radial-gradient(circle at 50% -10%, var(--accent-dim), transparent 60%);
+  overflow: hidden;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.hero-tagline {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(225, 6, 0, 0.35);
+}
+
+.road {
+  margin-top: 60px;
+  height: 10px;
+  background: #1c1c22;
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.lane {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--yellow) 0,
+    var(--yellow) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  animation: drive 3s linear infinite;
+}
+
+@keyframes drive {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-80px);
+  }
+}
+
+/* Shared section styling */
+section {
+  padding: 72px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.section-sub {
+  margin-bottom: 36px;
+}
+
+/* Garage */
+.garage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.garage-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: left;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.garage-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.garage-emoji {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.garage-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.garage-card p {
+  font-size: 15px;
+}
+
+/* Facts */
+.facts {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.fact-box {
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 24px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fact-box p {
+  color: var(--text);
+  font-size: 17px;
+}
+
+/* About */
+.about p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 14px;
+}
